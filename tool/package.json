@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": "./bin/index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --experimental-modules src/index.mjs "
@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.3.0"
+    "chalk": "^4.1.2",
+    "cosmiconfig": "^9.0.0"
   }
 }
