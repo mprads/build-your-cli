@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-import chalk from 'chalk'
-import arg from 'arg'
+const chalk = require('chalk');
+const arg = require('arg');
+const getConfig = require('../src/config/config-mgr');
+const start = require('../src/commands/start');
 
 try {
     const args = arg({
@@ -9,7 +11,8 @@ try {
     });
 
     if (args['--start']) {
-        console.log(chalk.bgCyanBright('starting the app'));
+        const config = getConfig();
+        start(config);
     }
 } catch(e) {
     console.log(chalk.yellow(e.message));
@@ -18,7 +21,7 @@ try {
 }
 
 function usage() {
-    console.log(`${chalk.whiteBright(tool [CMD])}
+    console.log(`${chalk.whiteBright('tool [CMD]')}
     ${chalk.greenBright('--start')}\tStarts the app
     -${chalk.greenBright('--build')}\tBuilds the app
     `)
